@@ -1,26 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#312e81">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="PUBG感度">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" href="./icon.svg" type="image/svg+xml">
-<title>PUBG感度調整ツール iPad完全版</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#eef2ff;color:#111827;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}button,input{font:inherit}.app{max-width:1180px;margin:auto;padding:14px 14px 70px}.hero{background:linear-gradient(135deg,#111827,#312e81);color:white;border-radius:30px;padding:26px;box-shadow:0 18px 44px #0003}.eyebrow{font-size:12px;letter-spacing:.14em;opacity:.72}.hero h1{font-size:clamp(34px,5vw,56px);margin:6px 0}.hero p{margin:0;opacity:.84;line-height:1.7}.tabs{position:sticky;top:0;z-index:20;display:flex;gap:10px;overflow:auto;background:#eef2ffcc;backdrop-filter:blur(10px);padding:12px 0}.tabs button,.btn{border:1px solid #c7d2fe;border-radius:16px;background:white;color:#111827;font-weight:900;padding:12px 16px;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;white-space:nowrap}.tabs button.active,.btn.on,.btn.primary,.btn:hover{background:#312e81;color:white;border-color:#312e81}.btn.danger:hover{background:#dc2626;border-color:#dc2626}.card{background:white;border:1px solid #dbeafe;border-radius:28px;padding:18px;margin-top:14px;box-shadow:0 10px 28px #1e1b4b12}h2{margin:0 0 14px;font-size:22px}.rowBetween{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.buttonGrid{display:flex;flex-wrap:wrap;gap:10px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.numBox,.box,.rangeBox,.info{border:1px solid #e0e7ff;background:#fff;border-radius:22px;padding:16px}.numBox{display:flex;align-items:center;justify-content:space-between;gap:12px}.numBox b,.box b,.rangeBox b,.info b{font-size:16px}.numBox p,.box p,.rangeBox p,.info p,.help{margin:6px 0 0;color:#64748b;font-size:13px;line-height:1.7}.numBox input{width:96px;border:1px solid #c7d2fe;border-radius:14px;padding:9px;text-align:center;font-size:26px;font-weight:950}.textInput{width:100%;border:1px solid #c7d2fe;border-radius:14px;padding:12px;font-weight:800}input[type=range]{width:100%;accent-color:#312e81;margin-top:14px}.stickyBar{position:sticky;bottom:10px;z-index:30;margin-top:14px;background:#fffffff2;backdrop-filter:blur(12px);border:1px solid #c7d2fe;border-radius:22px;padding:12px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 30px #1e1b4b22}.tableWrap{margin-top:14px;overflow:auto;border-radius:28px;background:white;border:1px solid #dbeafe;box-shadow:0 10px 28px #1e1b4b12}table{width:100%;min-width:820px;border-collapse:collapse}th{background:#111827;color:white;padding:14px;text-align:center;font-size:14px}th:first-child{text-align:left}td{border-top:1px solid #e0e7ff;padding:13px;text-align:center}td:first-child{text-align:left;background:#f8fafc;font-weight:900}.score{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:7px 12px;font-weight:950;min-width:78px;justify-content:center}.score span{font-size:22px}.score small{font-size:11px}.score.good{background:#dcfce7;color:#166534}.score.high{background:#fee2e2;color:#991b1b}.score.low{background:#dbeafe;color:#1e40af}.score.off{background:#e5e7eb;color:#374151}.list{display:grid;gap:10px;margin-top:12px}.listItem{border:1px solid #e0e7ff;border-radius:20px;padding:12px;background:white}.hidden{display:none!important}.modeBadge{display:inline-block;background:#818cf8;color:white;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:900;margin-top:10px}@media(max-width:820px){.grid4,.grid3,.grid2{grid-template-columns:1fr}.hero,.card,.tableWrap{border-radius:22px}.numBox input{width:88px}}
-.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:18px;padding:12px;margin-top:12px;margin-bottom:12px;font-weight:700;line-height:1.7}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#f97316">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PUBGスマホ感度">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <title>PUBG感度調整ツール スマホ完全版</title>
+  <style>
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;padding:0;background:#0b1220;color:#0f172a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+    body{min-height:100vh}
+    button,input,textarea{font:inherit}
+    button{touch-action:manipulation;cursor:pointer}
+    .app{max-width:760px;margin:0 auto;padding:10px 10px 92px}
+    .hero{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;border-radius:26px;padding:22px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .eyebrow{font-size:12px;letter-spacing:.14em;opacity:.72}
+    .hero h1{font-size:clamp(28px,8vw,42px);margin:6px 0}
+    .hero p{margin:0;opacity:.84;line-height:1.7}
+    .modeBadge{display:inline-block;background:#f97316;color:white;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:900;margin-top:10px}
+    .tabs{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow:auto;background:#0b1220dd;backdrop-filter:blur(10px);padding:10px 0}
+    .tabs button,.btn{border:1px solid #334155;border-radius:16px;background:#111827;color:white;font-weight:900;padding:12px 14px;display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap;min-height:48px}
+    .tabs button.active,.btn.on,.btn.primary,.btn:hover{background:#f97316;color:white;border-color:#f97316}
+    .btn.danger:hover{background:#dc2626;border-color:#dc2626}
+    .btn.small{padding:8px 12px;min-height:40px;font-size:13px}
+    .card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:24px;padding:14px;margin-top:12px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+    h2{margin:0 0 12px;font-size:20px}
+    .rowBetween{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .buttonGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .buttonGrid.flex{display:flex;flex-wrap:wrap}
+    .buttonGrid.three{grid-template-columns:repeat(3,1fr)}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .grid3{display:grid;grid-template-columns:1fr;gap:10px}
+    .numBox,.box,.rangeBox,.info{border:1px solid #e2e8f0;background:#fff;border-radius:20px;padding:13px}
+    .numBox{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .numBox b,.box b,.rangeBox b,.info b{font-size:15px}
+    .numBox p,.box p,.rangeBox p,.info p,.help{margin:6px 0 0;color:#64748b;font-size:13px;line-height:1.7}
+    .numBox input{width:82px;border:1px solid #cbd5e1;border-radius:14px;padding:9px;text-align:center;font-size:23px;font-weight:950;background:#f8fafc}
+    .textInput{width:100%;border:1px solid #cbd5e1;border-radius:14px;padding:12px;font-weight:800;background:#f8fafc}
+    input[type=range]{width:100%;accent-color:#f97316;margin-top:12px;height:32px}
+    .stickyBar{position:sticky;bottom:8px;z-index:30;margin-top:12px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border:1px solid #e2e8f0;border-radius:20px;padding:10px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+    .tableWrap{margin-top:12px;overflow:auto;-webkit-overflow-scrolling:touch;border-radius:24px;background:white;border:1px solid #e2e8f0;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+    table{width:100%;min-width:620px;border-collapse:collapse}
+    th{background:#0f172a;color:white;padding:12px;text-align:center;font-size:13px}
+    th:first-child{text-align:left}
+    td{border-top:1px solid #e2e8f0;padding:10px;text-align:center}
+    td:first-child{text-align:left;background:#f8fafc;font-weight:900;font-size:13px}
+    .score{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-weight:950;min-width:70px;justify-content:center}
+    .score span{font-size:20px}
+    .score small{font-size:10px}
+    .score.good{background:#dcfce7;color:#166534}
+    .score.high{background:#fee2e2;color:#991b1b}
+    .score.low{background:#dbeafe;color:#1e40af}
+    .score.off{background:#e5e7eb;color:#374151}
+    .list{display:grid;gap:10px;margin-top:12px}
+    .listItem{border:1px solid #e2e8f0;border-radius:18px;padding:12px;background:white}
+    .hidden{display:none!important}
+    .copyArea{width:100%;min-height:250px;border:1px solid #cbd5e1;border-radius:16px;padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#f8fafc}
+    .notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:18px;padding:12px;margin-top:12px;margin-bottom:12px;font-weight:700;line-height:1.7}
+    @media(max-width:480px){.grid2{grid-template-columns:1fr}.buttonGrid.three{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:28px}.stickyBar{flex-direction:column;align-items:stretch}.stickyBar .btn{width:100%}}
+  </style>
 </head>
 <body>
 <main class="app">
 <section class="hero">
-  <div class="eyebrow">iPAD / TABLET ONLY</div>
-  <h1>iPad・タブレット専用 感度調整</h1>
-  <p>大画面・4本指・ジャイロ併用向け。スマホ版より低めで安定、50〜100mの精密フルオートを重視。</p>
-  <span class="modeBadge">タブレット用：安定・精密補正</span>
+  <div class="eyebrow">SMARTPHONE COMPLETE</div>
+  <h1>PUBGスマホ感度調整 完全版</h1>
+  <p>スマホ・親指操作・ジャイロ併用向け。指操作比率0〜100、反動1刻み、武器別参考値、ワンタップ反映まで対応。</p>
+  <span class="modeBadge">スマホ用：近〜中距離・反応速度重視</span>
 </section>
 
 <nav class="tabs">
@@ -33,55 +84,51 @@
 </nav>
 
 <section id="calc" class="page">
-<section class="card">
-  <div class="rowBetween"><h2>① iPad用プリセット</h2><button class="btn" onclick="resetAll()">リセット</button></div>
-  <div class="buttonGrid" id="presetButtons"></div>
-</section>
+  <section class="card">
+    <div class="rowBetween"><h2>① スマホ用プリセット</h2><button class="btn" onclick="resetAll()">リセット</button></div>
+    <div class="buttonGrid" id="presetButtons"></div>
+  </section>
 
-<section class="card">
-  <h2>② ホロ・レッドドット基準</h2>
-  <div class="grid4">
-    <div class="numBox"><div><b>カメラ</b><p>iPad基準 60</p></div><input id="redCam" type="number"></div>
-    <div class="numBox"><div><b>ADS</b><p>iPad基準 55</p></div><input id="redAds" type="number"></div>
-    <div class="numBox"><div><b>ジャイロカメラ</b><p>iPad基準 300</p></div><input id="redGyroCam" type="number"></div>
-    <div class="numBox"><div><b>ジャイロ</b><p>iPad基準 300</p></div><input id="redGyro" type="number"></div>
-  </div>
-</section>
+  <section class="card">
+    <h2>② ホロ・レッドドット基準</h2>
+    <div class="grid2">
+      <div class="numBox"><div><b>カメラ</b><p>スマホ基準 70</p></div><input id="redCam" type="number" inputmode="numeric"></div>
+      <div class="numBox"><div><b>ADS</b><p>スマホ基準 65</p></div><input id="redAds" type="number" inputmode="numeric"></div>
+      <div class="numBox"><div><b>ジャイロカメラ</b><p>スマホ基準 340</p></div><input id="redGyroCam" type="number" inputmode="numeric"></div>
+      <div class="numBox"><div><b>ジャイロ</b><p>スマホ基準 340</p></div><input id="redGyro" type="number" inputmode="numeric"></div>
+    </div>
+  </section>
 
-<section class="card">
-  <h2>③ タブレット補正</h2>
-  <div class="grid3">
-    <div class="box"><b>ジャイロ</b><div class="buttonGrid" id="gyroButtons"></div></div>
-    <div class="box"><b>武器タイプ</b><div class="buttonGrid" id="weaponButtons"></div><p id="weaponNote"></p></div>
-    <div class="box"><b>メモ</b><input class="textInput" id="memo" placeholder="例：iPad M4 100m用"></div>
-  </div>
-  <div class="grid3">
+  <section class="card">
+    <h2>③ スマホ補正</h2>
+    <div class="grid2">
+      <div class="box"><b>ジャイロON/OFF</b><div class="buttonGrid" id="gyroButtons" style="margin-top:10px"></div></div>
+      <div class="box"><b>武器タイプ</b><div class="buttonGrid three" id="weaponButtons" style="margin-top:10px"></div><p id="weaponNote"></p></div>
+    </div>
+    <div class="box" style="margin-top:10px"><b>メモ</b><input class="textInput" id="memo" placeholder="例：スマホ M4近距離用"></div>
     <div class="rangeBox"><div class="rowBetween"><b>指操作比率</b><b id="fingerVal"></b></div><input id="finger" type="range" min="0" max="100" step="5"><p id="fingerNote"></p></div>
-    <div class="rangeBox"><div class="rowBetween"><b>反動</b><b id="recoilVal"></b></div><input id="recoil" type="range" min="40" max="75" step="1"><p id="recoilNote">武器タイプに合わせて反動目安を表示します。</p></div>
-    <div class="rangeBox"><div class="rowBetween"><b>交戦距離</b><b id="distanceVal"></b></div><input id="distance" type="range" min="20" max="150" step="5"><p>50〜100m重視なら100。</p></div>
-  </div>
+    <div class="rangeBox"><div class="rowBetween"><b>反動</b><b id="recoilVal"></b></div><input id="recoil" type="range" min="40" max="80" step="1"><p id="recoilNote">武器タイプに合わせて反動目安を表示します。</p></div>
+    <div class="rangeBox"><div class="rowBetween"><b>交戦距離</b><b id="distanceVal"></b></div><input id="distance" type="range" min="10" max="120" step="5"><p>スマホは30〜80mが主戦場。</p></div>
+  </section>
+
+  <section class="card">
+    <h2>④ 武器別 反動目安</h2>
+    <div class="grid2">
+      <div class="info"><b>AR</b><p>M4・AUG：60〜65<br>ベリル・AK：65〜72</p></div>
+      <div class="info"><b>SMG</b><p>近距離用：50〜58<br>追いエイム重視なら55</p></div>
+      <div class="info"><b>DMR</b><p>Mini・SLR：48〜56<br>タップ撃ち安定寄り</p></div>
+      <div class="info"><b>SR</b><p>Kar・M24：42〜50<br>狙いすぎ防止で低め</p></div>
+      <div class="info"><b>LMG</b><p>DP・MG3：68〜76<br>上跳ね対策で高め</p></div>
+      <div class="info"><b>調整</b><p>上に跳ねる→+1〜+5<br>横ブレ→ADS -5</p></div>
+    </div>
+  </section>
+
+  <div class="stickyBar"><b>計算結果</b><button class="btn primary" onclick="copyAll()" id="copyBtn">全部コピー</button></div>
+
+  <section class="tableWrap">
+    <table><thead><tr><th>項目</th><th>カメラ</th><th>ADS</th><th>ジャイロカメラ</th><th>ジャイロ</th></tr></thead><tbody id="resultBody"></tbody></table>
+  </section>
 </section>
-
-
-<section class="card">
-  <h2>④ 武器別 反動目安</h2>
-  <div class="grid3">
-    <div class="info"><b>AR</b><p>M4・AUG：55〜60<br>ベリル・AK：60〜65</p></div>
-    <div class="info"><b>SMG</b><p>近距離用：45〜55<br>追いエイム重視なら50</p></div>
-    <div class="info"><b>DMR</b><p>Mini・SLR：45〜55<br>タップ撃ち安定寄り</p></div>
-    <div class="info"><b>SR</b><p>Kar・M24：40〜50<br>狙いすぎ防止で低め</p></div>
-    <div class="info"><b>LMG</b><p>DP・MG3：60〜70<br>上跳ね対策で高め</p></div>
-    <div class="info"><b>調整</b><p>上に跳ねる→+1〜+5<br>下に下がる→-1〜-5</p></div>
-  </div>
-</section>
-
-<div class="stickyBar"><b>計算結果</b><button class="btn primary" onclick="copyAll()" id="copyBtn">全部コピー</button></div>
-
-<section class="tableWrap">
-<table><thead><tr><th>項目</th><th>カメラ</th><th>ADS</th><th>ジャイロカメラ</th><th>ジャイロ</th></tr></thead><tbody id="resultBody"></tbody></table>
-</section>
-</section>
-
 
 <section id="reference" class="page hidden card">
   <h2>武器別 最強参考値</h2>
@@ -93,91 +140,99 @@
   <div class="grid2" id="weaponReference"></div>
 </section>
 
-<section id="copy" class="page hidden card">
-  <h2>コピー用</h2>
-  <p class="help">iPadで「全部コピー」が効かない時は、下の枠を長押し → 全選択 → コピーしてください。</p>
-  <textarea id="copyArea" class="copyArea" readonly style="width:100%;min-height:250px;border:1px solid #c7d2fe;border-radius:16px;padding:12px;background:#f8fafc;font-family:monospace;"></textarea>
+<section id="guide" class="page hidden card">
+  <h2>スマホ専用の調整ルール</h2>
+  <div class="list">
+    <div class="info"><b>敵に追いつかない</b><p>カメラ +5。近距離多めならホロ・レッドドットのカメラを上げる。</p></div>
+    <div class="info"><b>敵を追い越す</b><p>カメラ -5。ADSは触りすぎない。</p></div>
+    <div class="info"><b>上に跳ねる</b><p>反動 +1〜+5、ジャイロ +10〜20。ジャイロOFFならADS +5。</p></div>
+    <div class="info"><b>左右に暴れる</b><p>ADS -5、ジャイロ -10。反動だけ上げすぎない。</p></div>
+    <div class="info"><b>スマホおすすめ</b><p>カメラ70、ADS65、ジャイロ330〜360、反動60〜65。</p></div>
+    <div class="info"><b>指操作比率</b><p>0〜100で調整可能。0＝ジャイロ重視、100＝指操作重視。</p></div>
+  </div>
 </section>
 
-<section id="guide" class="page hidden card">
-  <h2>iPad・タブレット専用の調整ルール</h2>
-  <div class="grid2">
-    <div class="info"><b>敵を追い越す</b><p>カメラ -5。iPadは画面が大きいので高すぎ注意。</p></div>
-    <div class="info"><b>敵に追いつかない</b><p>カメラ +5。近距離が多いならホロだけ上げる。</p></div>
-    <div class="info"><b>上に跳ねる</b><p>反動 +5、ジャイロ +10〜20。ベリル系は反動65目安。</p></div>
-    <div class="info"><b>左右に暴れる</b><p>ADS -5、ジャイロ -10。3倍・4倍だけ下げるのも有効。</p></div>
-    <div class="info"><b>iPadおすすめ</b><p>カメラ60、ADS55、ジャイロ300、反動55〜60。</p></div>
-    <div class="info"><b>50〜100m重視</b><p>距離100、武器AR、指：ジャイロ 70：30 が基準。</p></div><div class="info"><b>指操作比率</b><p>0〜100で調整可能。0＝ジャイロ重視、100＝指操作重視。</p></div>
-  </div>
+<section id="copy" class="page hidden card">
+  <h2>コピー用</h2>
+  <p class="help">スマホで「全部コピー」が効かない時は、下の枠を長押し → 全選択 → コピーしてください。</p>
+  <textarea id="copyArea" class="copyArea" readonly></textarea>
 </section>
 
 <section id="save" class="page hidden card">
   <h2>保存</h2>
-  <input class="textInput" id="profileName" placeholder="保存名：例 iPad_M4中距離">
-  <div class="buttonGrid" style="margin-top:10px"><button class="btn primary" onclick="saveProfile()">保存</button><button class="btn" onclick="exportJson()">書き出し</button></div>
+  <input class="textInput" id="profileName" placeholder="保存名：例 スマホ_M4近距離">
+  <div class="buttonGrid" style="margin-top:10px"><button class="btn primary" onclick="saveProfile()">保存</button><button class="btn" onclick="exportJson()">書き出し</button><label class="btn">読み込み<input hidden type="file" accept=".json" id="importFile"></label></div>
+  <div class="notice">プライベートブラウズでは保存が残らない場合があります。通常のSafari / Chromeで使ってください。</div>
   <div class="list" id="profileList"></div>
 </section>
 
 <section id="legal" class="page hidden card">
   <h2>情報</h2>
   <div class="info"><b>非公式ツール</b><p>本ツールは非公式の感度計算ツールです。特定ゲーム会社・権利者とは関係ありません。</p></div>
-  <div class="info"><b>タブレット専用</b><p>この版はiPad・タブレットの大画面、4本指操作、ジャイロ併用を前提に、スマホ版より安定寄りに補正しています。</p></div>
+  <div class="info"><b>スマホ専用</b><p>この版はスマホの小さい画面・短い指移動を前提に、iPad版より高め・反応速度寄りに補正しています。</p></div>
 </section>
 </main>
 
 <script>
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
-const scopes=[{key:"tpp",label:"TPPスコープなし",mult:1.83},{key:"fpp",label:"FPPスコープなし",mult:1.67},{key:"red",label:"ホロ・レッドドット",mult:1},{key:"x2",label:"2倍スコープ",mult:.83},{key:"x3",label:"3倍スコープ",mult:.67},{key:"x4",label:"4倍スコープ",mult:.5},{key:"x6",label:"6倍スコープ",mult:.33},{key:"x8",label:"8倍スコープ",mult:.17}];
-const presets={standard:{name:"標準",redCam:60,redAds:55,redGyroCam:300,redGyro:300,finger:70,recoil:55,distance:75,weapon:"AR",gyroOn:"ON",memo:"iPad標準"},stable:{name:"安定重視",redCam:55,redAds:50,redGyroCam:285,redGyro:285,finger:65,recoil:60,distance:80,weapon:"AR",gyroOn:"ON",memo:"安定重視"},mid:{name:"50〜100m重視",redCam:58,redAds:52,redGyroCam:310,redGyro:315,finger:70,recoil:60,distance:100,weapon:"AR",gyroOn:"ON",memo:"50〜100m重視"},close:{name:"近距離重視",redCam:66,redAds:60,redGyroCam:320,redGyro:325,finger:75,recoil:55,distance:40,weapon:"SMG",gyroOn:"ON",memo:"近距離重視"},dmr:{name:"DMR重視",redCam:50,redAds:45,redGyroCam:260,redGyro:250,finger:60,recoil:50,distance:120,weapon:"DMR",gyroOn:"ON",memo:"DMR重視"},gyroOff:{name:"ジャイロOFF",redCam:65,redAds:75,redGyroCam:0,redGyro:0,finger:90,recoil:55,distance:75,weapon:"AR",gyroOn:"OFF",memo:"ジャイロOFF"}};
-const weapons={AR:{cam:0,ads:0,gyroCam:0,gyro:0,recoil:58,note:"M4・AUG基準｜反動目安55〜60"},BERYL:{cam:-3,ads:-5,gyroCam:10,gyro:25,recoil:65,note:"ベリル・AK｜反動目安60〜65"},SMG:{cam:5,ads:8,gyroCam:15,gyro:20,recoil:50,note:"近距離・追いエイム｜反動目安45〜55"},DMR:{cam:-3,ads:-5,gyroCam:-15,gyro:-20,recoil:50,note:"タップ撃ち安定｜反動目安45〜55"},SR:{cam:-5,ads:-10,gyroCam:-30,gyro:-35,recoil:45,note:"狙撃向け｜反動目安40〜50"},LMG:{cam:-2,ads:5,gyroCam:10,gyro:15,recoil:68,note:"DP・MG3｜反動目安60〜70"}};
 
-const weaponTemplates={
-  AR:{title:"AR（M416 / AUG）",desc:"中距離フルオート最強バランス",redCam:58,redAds:52,redGyroCam:310,redGyro:315,recoil:58,weapon:"AR",finger:70,distance:100,tip:"50〜100mで一番当たる。迷ったらこれ。"},
-  BERYL:{title:"ベリル / AK",desc:"高反動AR・跳ね対策特化",redCam:55,redAds:50,redGyroCam:320,redGyro:340,recoil:65,weapon:"BERYL",finger:65,distance:100,tip:"上ブレをジャイロで押さえ込む。65：35もOK。"},
-  SMG:{title:"SMG（UZI / Vector / MP5）",desc:"近距離溶かし特化",redCam:66,redAds:60,redGyroCam:320,redGyro:330,recoil:50,weapon:"SMG",finger:75,distance:40,tip:"追いエイム重視。横移動にも強い。"},
-  LMG:{title:"LMG（DP / MG3）",desc:"制圧・継続射撃用",redCam:54,redAds:58,redGyroCam:330,redGyro:350,recoil:68,weapon:"LMG",finger:65,distance:80,tip:"長押しでもブレにくい。"},
-  DMR:{title:"DMR（Mini / SLR）",desc:"タップ撃ち安定",redCam:50,redAds:45,redGyroCam:260,redGyro:250,recoil:50,weapon:"DMR",finger:60,distance:120,tip:"フルオート用より低め。"},
-  SR:{title:"SR（Kar / M24）",desc:"単発精密",redCam:48,redAds:40,redGyroCam:240,redGyro:220,recoil:45,weapon:"SR",finger:60,distance:130,tip:"動かしすぎない設定。"}
+const scopes=[{key:"tpp",label:"TPPスコープなし",mult:1.65},{key:"fpp",label:"FPPスコープなし",mult:1.55},{key:"red",label:"ホロ・レッドドット",mult:1},{key:"x2",label:"2倍スコープ",mult:.88},{key:"x3",label:"3倍スコープ",mult:.72},{key:"x4",label:"4倍スコープ",mult:.55},{key:"x6",label:"6倍スコープ",mult:.38},{key:"x8",label:"8倍スコープ",mult:.22}];
+
+const presets={
+  standard:{name:"標準",redCam:70,redAds:65,redGyroCam:340,redGyro:340,finger:75,recoil:62,distance:60,weapon:"AR",gyroOn:"ON",memo:"スマホ標準"},
+  close:{name:"近距離特化",redCam:82,redAds:75,redGyroCam:365,redGyro:370,finger:80,recoil:55,distance:30,weapon:"SMG",gyroOn:"ON",memo:"近距離特化"},
+  mid:{name:"50〜80m",redCam:68,redAds:62,redGyroCam:345,redGyro:355,finger:75,recoil:65,distance:80,weapon:"AR",gyroOn:"ON",memo:"50〜80m"},
+  stable:{name:"安定重視",redCam:62,redAds:58,redGyroCam:315,redGyro:320,finger:70,recoil:62,distance:70,weapon:"AR",gyroOn:"ON",memo:"安定重視"},
+  gyroOff:{name:"ジャイロOFF",redCam:80,redAds:85,redGyroCam:0,redGyro:0,finger:100,recoil:62,distance:60,weapon:"AR",gyroOn:"OFF",memo:"ジャイロOFF"}
 };
 
-let settings=JSON.parse(localStorage.getItem("tabletSensSettings")||"null")||{...presets.standard};let profiles=JSON.parse(localStorage.getItem("tabletSensProfiles")||"[]");let currentValues=[];
-function clamp(n,min,max){return Math.max(min,Math.min(max,Math.round(n)))}function level(v,type){if(type==="gyro"){if(v===0)return"off";if(v>=330)return"high";if(v<=80)return"low";return"good"}if(v>=120)return"high";if(v<=15)return"low";return"good"}function statusText(v){return v==="high"?"高":v==="low"?"低":v==="off"?"OFF":"適"}function saveSettings(){localStorage.setItem("tabletSensSettings",JSON.stringify(settings))}
+const weapons={
+  AR:{cam:0,ads:0,gyroCam:0,gyro:0,recoil:62,note:"M4・AUG基準｜反動目安60〜65"},
+  BERYL:{cam:-3,ads:-5,gyroCam:10,gyro:25,recoil:68,note:"ベリル・AK｜反動目安65〜72"},
+  SMG:{cam:8,ads:10,gyroCam:18,gyro:22,recoil:55,note:"近距離・追いエイム｜反動目安50〜58"},
+  DMR:{cam:-4,ads:-6,gyroCam:-18,gyro:-22,recoil:52,note:"タップ撃ち安定｜反動目安48〜56"},
+  SR:{cam:-6,ads:-12,gyroCam:-35,gyro:-40,recoil:45,note:"狙撃向け｜反動目安42〜50"},
+  LMG:{cam:-2,ads:6,gyroCam:12,gyro:18,recoil:72,note:"DP・MG3｜反動目安68〜76"}
+};
+
+const weaponTemplates={
+  AR:{title:"AR（M416 / AUG）",desc:"スマホ中距離フルオート基準",redCam:70,redAds:65,redGyroCam:340,redGyro:340,recoil:62,weapon:"AR",finger:75,distance:60,tip:"近〜中距離で使いやすい基準。"},
+  BERYL:{title:"ベリル / AK",desc:"高反動AR・跳ね対策",redCam:66,redAds:60,redGyroCam:350,redGyro:365,recoil:68,weapon:"BERYL",finger:70,distance:70,tip:"上ブレをジャイロで押さえ込む。"},
+  SMG:{title:"SMG（UZI / Vector / MP5）",desc:"近距離溶かし特化",redCam:82,redAds:75,redGyroCam:365,redGyro:370,recoil:55,weapon:"SMG",finger:80,distance:30,tip:"追いエイムと反応速度重視。"},
+  LMG:{title:"LMG（DP / MG3）",desc:"制圧・継続射撃用",redCam:62,redAds:66,redGyroCam:355,redGyro:375,recoil:72,weapon:"LMG",finger:70,distance:60,tip:"長押しでもブレにくい設定。"},
+  DMR:{title:"DMR（Mini / SLR）",desc:"タップ撃ち安定",redCam:58,redAds:52,redGyroCam:285,redGyro:280,recoil:52,weapon:"DMR",finger:65,distance:90,tip:"連射しすぎてもブレにくい。"},
+  SR:{title:"SR（Kar / M24）",desc:"単発精密",redCam:54,redAds:48,redGyroCam:260,redGyro:240,recoil:45,weapon:"SR",finger:65,distance:100,tip:"動かしすぎない設定。"}
+};
+
+let settings=JSON.parse(localStorage.getItem("phoneSensSettingsV1")||"null")||{...presets.standard};
+let profiles=JSON.parse(localStorage.getItem("phoneSensProfilesV1")||"[]");
+let currentValues=[];
+
+function clamp(n,min,max){return Math.max(min,Math.min(max,Math.round(Number(n)||0)))}
+function level(v,type){if(type==="gyro"){if(v===0)return"off";if(v>=370)return"high";if(v<=100)return"low";return"good"}if(v>=135)return"high";if(v<=20)return"low";return"good"}
+function statusText(v){return v==="high"?"高":v==="low"?"低":v==="off"?"OFF":"適"}
+function saveSettings(){localStorage.setItem("phoneSensSettingsV1",JSON.stringify(settings))}
+function normalize(){settings.redCam=clamp(settings.redCam,1,200);settings.redAds=clamp(settings.redAds,1,200);settings.redGyroCam=clamp(settings.redGyroCam,0,400);settings.redGyro=clamp(settings.redGyro,0,400);settings.finger=clamp(settings.finger,0,100);settings.recoil=clamp(settings.recoil,40,80);settings.distance=clamp(settings.distance,10,120);if(!weapons[settings.weapon])settings.weapon="AR";if(settings.gyroOn!=="ON"&&settings.gyroOn!=="OFF")settings.gyroOn="ON"}
+
 function renderButtons(){presetButtons.innerHTML=Object.entries(presets).map(([k,p])=>`<button class="btn" onclick="applyPreset('${k}')">${p.name}</button>`).join("");gyroButtons.innerHTML=["ON","OFF"].map(v=>`<button class="btn ${settings.gyroOn===v?"on":""}" onclick="setGyro('${v}')">${v}</button>`).join("");weaponButtons.innerHTML=Object.keys(weapons).map(v=>`<button class="btn ${settings.weapon===v?"on":""}" onclick="setWeapon('${v}')">${v}</button>`).join("")}
+function renderWeaponReference(){weaponReference.innerHTML=Object.entries(weaponTemplates).map(([key,t])=>`<div class="info"><b>${t.title}</b><p>${t.desc}<br>カメラ：${t.redCam}<br>ADS：${t.redAds}<br>ジャイロカメラ：${t.redGyroCam}<br>ジャイロ：${t.redGyro}<br>反動：${t.recoil}<br>👉 ${t.tip}</p><button class="btn primary small" onclick="applyWeaponTemplate('${key}')">ワンタップ反映</button></div>`).join("")}
+function syncInputs(){["redCam","redAds","redGyroCam","redGyro","finger","recoil","distance","memo"].forEach(id=>document.getElementById(id).value=settings[id]??"");fingerVal.textContent=settings.finger;recoilVal.textContent=settings.recoil;distanceVal.textContent=settings.distance+"m";fingerNote.textContent="ジャイロ "+(100-settings.finger)+"（0〜100で調整）";weaponNote.textContent=weapons[settings.weapon].note;recoilNote.textContent="現在の武器 "+settings.weapon+" の反動目安："+weapons[settings.weapon].recoil+" 前後"}
 
-function renderWeaponReference(){
-  if(!document.getElementById("weaponReference"))return;
-  weaponReference.innerHTML=Object.entries(weaponTemplates).map(([key,t])=>`
-    <div class="info weaponCard">
-      <b>${t.title}</b>
-      <p>${t.desc}<br>
-      カメラ：${t.redCam}<br>
-      ADS：${t.redAds}<br>
-      ジャイロカメラ：${t.redGyroCam}<br>
-      ジャイロ：${t.redGyro}<br>
-      反動：${t.recoil}<br>
-      👉 ${t.tip}</p>
-      <button class="btn primary" onclick="applyWeaponTemplate('${key}')">ワンタップ反映</button>
-    </div>`).join("");
-}
-function applyWeaponTemplate(key){
-  const t=weaponTemplates[key];
-  settings={...settings,redCam:t.redCam,redAds:t.redAds,redGyroCam:t.redGyroCam,redGyro:t.redGyro,recoil:t.recoil,weapon:t.weapon,finger:t.finger,distance:t.distance,gyroOn:"ON",memo:t.title};
-  update();
-  showTab("calc");
-}
-
-function syncInputs(){["redCam","redAds","redGyroCam","redGyro","finger","recoil","distance","memo"].forEach(id=>document.getElementById(id).value=settings[id]??"");fingerVal.textContent=settings.finger;recoilVal.textContent=settings.recoil;distanceVal.textContent=settings.distance+"m";fingerNote.textContent="ジャイロ "+(100-settings.finger)+"（0〜100で調整）";weaponNote.textContent=weapons[settings.weapon].note;if(document.getElementById("recoilNote"))recoilNote.textContent="現在の武器 "+settings.weapon+" の反動目安："+weapons[settings.weapon].recoil+" 前後"}
-function calculate(){const adj=weapons[settings.weapon],gyroRatio=(100-settings.finger)/100,distanceAdj=(settings.distance-75)*.08,recoilAdj=(settings.recoil-55)*.65;currentValues=scopes.map(s=>{const cam=clamp(settings.redCam*s.mult+adj.cam-distanceAdj,1,200),ads=clamp(settings.redAds*s.mult+adj.ads+(settings.finger-70)*.25-distanceAdj+(settings.gyroOn==="OFF"?15:0),1,200),gyroCam=settings.gyroOn==="OFF"?0:clamp(settings.redGyroCam*s.mult+adj.gyroCam+(gyroRatio-.3)*80-distanceAdj*2,1,400),gyro=settings.gyroOn==="OFF"?0:clamp(settings.redGyro*s.mult+adj.gyro+(gyroRatio-.3)*100+recoilAdj-distanceAdj*3,1,400);return{...s,cam,ads,gyroCam,gyro}})}
+function calculate(){const adj=weapons[settings.weapon],gyroRatio=(100-settings.finger)/100,distanceAdj=(settings.distance-60)*.045,recoilAdj=(settings.recoil-60)*.75;currentValues=scopes.map(s=>{const cam=clamp(settings.redCam*s.mult+adj.cam-distanceAdj,1,200),ads=clamp(settings.redAds*s.mult+adj.ads+(settings.finger-75)*.22-distanceAdj+(settings.gyroOn==="OFF"?18:0),1,200),gyroCam=settings.gyroOn==="OFF"?0:clamp(settings.redGyroCam*s.mult+adj.gyroCam+(gyroRatio-.25)*70-distanceAdj*1.2,1,400),gyro=settings.gyroOn==="OFF"?0:clamp(settings.redGyro*s.mult+adj.gyro+(gyroRatio-.25)*90+recoilAdj-distanceAdj*2,1,400);return{...s,cam,ads,gyroCam,gyro}})}
 function score(v,type){const l=level(v,type);return`<div class="score ${l}"><span>${v}</span><small>${statusText(l)}</small></div>`}
 function renderTable(){resultBody.innerHTML=currentValues.map(v=>`<tr><td>${v.label}</td><td>${score(v.cam,"normal")}</td><td>${score(v.ads,"normal")}</td><td>${score(v.gyroCam,"gyro")}</td><td>${score(v.gyro,"gyro")}</td></tr>`).join("")}
-function update(){saveSettings();renderButtons();renderWeaponReference();syncInputs();calculate();renderTable();renderProfiles();if(document.getElementById("copyArea"))copyArea.value=buildCopyText()}
+function update(){normalize();saveSettings();renderButtons();renderWeaponReference();syncInputs();calculate();renderTable();renderProfiles();copyArea.value=buildCopyText()}
 function applyPreset(k){settings={...presets[k]};update()}function resetAll(){settings={...presets.standard};update()}function setGyro(v){settings.gyroOn=v;update()}function setWeapon(v){settings.weapon=v;update()}
+function applyWeaponTemplate(key){const t=weaponTemplates[key];settings={...settings,redCam:t.redCam,redAds:t.redAds,redGyroCam:t.redGyroCam,redGyro:t.redGyro,recoil:t.recoil,weapon:t.weapon,finger:t.finger,distance:t.distance,gyroOn:"ON",memo:t.title};update();showTab("calc")}
 ["redCam","redAds","redGyroCam","redGyro","finger","recoil","distance","memo"].forEach(id=>document.getElementById(id).addEventListener("input",e=>{settings[id]=id==="memo"?e.target.value:Number(e.target.value||0);update()}));
-function buildCopyText(){return["iPad・タブレット専用 感度設定",`ジャイロ：${settings.gyroOn}`,`武器：${settings.weapon}`,`指：ジャイロ = ${settings.finger}：${100-settings.finger}`,`反動：${settings.recoil}`,`距離：${settings.distance}m`,"","【カメラ感度】",...currentValues.map(v=>`${v.label}：${v.cam}`),"","【ADS感度】",...currentValues.map(v=>`${v.label}：${v.ads}`),"","【ジャイロカメラ感度】",...currentValues.map(v=>`${v.label}：${v.gyroCam}`),"","【ジャイロ感度】",...currentValues.map(v=>`${v.label}：${v.gyro}`)].join("\n")}
+
+function buildCopyText(){return["スマホ専用 感度設定",`メモ：${settings.memo||""}`,`ジャイロ：${settings.gyroOn}`,`武器：${settings.weapon}`,`指：ジャイロ = ${settings.finger}：${100-settings.finger}`,`反動：${settings.recoil}`,`距離：${settings.distance}m`,"","【カメラ感度】",...currentValues.map(v=>`${v.label}：${v.cam}`),"","【ADS感度】",...currentValues.map(v=>`${v.label}：${v.ads}`),"","【ジャイロカメラ感度】",...currentValues.map(v=>`${v.label}：${v.gyroCam}`),"","【ジャイロ感度】",...currentValues.map(v=>`${v.label}：${v.gyro}`)].join("\n")}
 async function copyAll(){try{await navigator.clipboard.writeText(buildCopyText());copyBtn.textContent="コピー済み";setTimeout(()=>copyBtn.textContent="全部コピー",1200)}catch(e){showTab("copy");copyArea.focus();copyArea.select()}}
-function saveProfile(){const name=profileName.value.trim()||`iPad_${settings.weapon}_${new Date().toLocaleDateString("ja-JP")}`;profiles.unshift({name,date:new Date().toLocaleString("ja-JP"),settings:{...settings}});profiles=profiles.slice(0,20);localStorage.setItem("tabletSensProfiles",JSON.stringify(profiles));profileName.value="";renderProfiles()}
-function renderProfiles(){profileList.innerHTML=profiles.length?profiles.map((p,i)=>`<div class="listItem"><b>${p.name}</b><p>${p.date} / ${p.settings.weapon} / ${p.settings.gyroOn}</p><div class="buttonGrid"><button class="btn" onclick="loadProfile(${i})">使う</button><button class="btn danger" onclick="deleteProfile(${i})">削除</button></div></div>`).join(""):"<p>まだ保存はありません。</p>"}function loadProfile(i){settings={...profiles[i].settings};update();showTab("calc")}function deleteProfile(i){profiles.splice(i,1);localStorage.setItem("tabletSensProfiles",JSON.stringify(profiles));renderProfiles()}
-function exportJson(){const blob=new Blob([JSON.stringify({settings,profiles},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="tablet-sensitivity-settings.json";a.click();URL.revokeObjectURL(a.href)}
+function saveProfile(){const name=profileName.value.trim()||`スマホ_${settings.weapon}_${new Date().toLocaleDateString("ja-JP")}`;profiles.unshift({name,date:new Date().toLocaleString("ja-JP"),settings:{...settings}});profiles=profiles.slice(0,20);localStorage.setItem("phoneSensProfilesV1",JSON.stringify(profiles));profileName.value="";renderProfiles()}
+function renderProfiles(){profileList.innerHTML=profiles.length?profiles.map((p,i)=>`<div class="listItem"><b>${p.name}</b><p>${p.date} / ${p.settings.weapon} / ${p.settings.gyroOn}</p><div class="buttonGrid"><button class="btn" onclick="loadProfile(${i})">使う</button><button class="btn danger" onclick="deleteProfile(${i})">削除</button></div></div>`).join(""):"<p>まだ保存はありません。</p>"}
+function loadProfile(i){settings={...profiles[i].settings};update();showTab("calc")}function deleteProfile(i){profiles.splice(i,1);localStorage.setItem("phoneSensProfilesV1",JSON.stringify(profiles));renderProfiles()}
+function exportJson(){const blob=new Blob([JSON.stringify({settings,profiles},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="phone-sensitivity-settings.json";a.click();URL.revokeObjectURL(a.href)}
+importFile.addEventListener("change",async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(data.settings)settings=data.settings;if(data.profiles)profiles=data.profiles;update()}catch(err){alert("読み込みに失敗しました")}})
 function showTab(id){document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id))}
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));update();
 </script>
