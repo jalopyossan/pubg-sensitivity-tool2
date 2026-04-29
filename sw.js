@@ -1,1 +1,1 @@
-// disabled
+// no service worker cache
