@@ -1,1 +1,0 @@
-{"name": "FPS感度調整ツール スマホ版", "short_name": "FPS感度", "start_url": "./", "scope": "./", "display": "standalone", "theme_color": "#ff6b16", "background_color": "#ffffff", "icons": [{"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]}
