@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FPS感度ツール スマホ版</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--bg:#080808;--panel:#151515;--panel2:#1d1d1d;--panel3:#101010;--line:#303030;--line2:#3a3a3a;--text:#f8f8f8;--muted:#b7b7b7;--gold:#e4bd55;--gold2:#ffe39a;--green:#63d58a;--red:#ff7676;--shadow:0 16px 46px rgba(0,0,0,.38)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top,#1b1b1b,#060606 58%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans','Yu Gothic',sans-serif;line-height:1.55;padding-bottom:env(safe-area-inset-bottom)}
+button,input,select{font:inherit}.wrap{max-width:980px;margin:0 auto;padding:14px 12px 42px}.top{border:1px solid var(--line);background:linear-gradient(180deg,#171717,#101010);border-radius:24px;padding:16px;box-shadow:var(--shadow);margin-bottom:12px}.title{font-size:clamp(23px,4.2vw,34px);font-weight:1000;margin:9px 0 4px}.lead{color:#d8d8d8;font-size:13px;margin:0}.notice{margin-top:12px;border:1px solid rgba(228,189,85,.45);background:rgba(228,189,85,.08);color:var(--gold2);border-radius:15px;padding:11px 12px;font-weight:850;font-size:12.5px}.appbar{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(8,8,8,.98),rgba(8,8,8,.80));backdrop-filter:blur(10px);padding:8px 0;margin-bottom:10px}.statusBar{border:1px solid rgba(228,189,85,.50);background:rgba(228,189,85,.10);color:var(--gold2);border-radius:14px;padding:9px 11px;margin-bottom:8px;font-size:12.5px;font-weight:950;line-height:1.45}.statusBar b{color:#fff}.chips{display:flex;gap:8px;overflow:auto;padding-bottom:2px}.chip{flex:0 0 auto;border:1px solid #3a3a3a;background:#141414;border-radius:999px;padding:8px 10px;font-size:12px;font-weight:900;color:#eee}.chip b{color:var(--gold2)}
+.section{border:1px solid var(--line);border-radius:22px;background:rgba(21,21,21,.96);padding:14px;margin:12px 0}.section h2{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:18px;margin:0 0 10px}.hint{color:var(--muted);font-size:12px;font-weight:700}.guide{border:1px solid #333;background:#101010;border-radius:14px;padding:10px 11px;color:#eee;font-size:12.5px;margin-top:10px}.guide b{color:var(--gold2)}
+.controls{display:grid;grid-template-columns:1.2fr .8fr 1.1fr;gap:10px}.control{background:#101010;border:1px solid #323232;border-radius:15px;padding:10px}.control label{display:block;color:#aaa;font-size:12px;font-weight:900;margin-bottom:5px}.control select,.control input[type=number]{width:100%;border:1px solid #3d3d3d;background:#080808;color:#fff;border-radius:11px;padding:10px;font-weight:900}.rangeLine{display:flex;align-items:center;gap:10px}.rangeLine input[type=range]{flex:1;accent-color:var(--gold)}.bigVal{font-size:20px;color:var(--gold2);font-weight:1000;white-space:nowrap}.toggleRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.btn{border:1px solid #3a3a3a;background:#2a2a2a;color:#fff;border-radius:13px;padding:10px 12px;font-weight:1000;cursor:pointer}.btn.active,.btn.gold{background:var(--gold);color:#111;border-color:var(--gold)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.ghost{background:#111}.btn.small{font-size:12px;padding:8px 10px;border-radius:11px}.anchorWrap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{background:linear-gradient(180deg,#191919,#101010);border:1px solid #333;border-radius:18px;padding:12px}.card.anchor{border-color:rgba(228,189,85,.60);box-shadow:0 0 0 1px rgba(228,189,85,.09) inset}.cardHead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:9px}.scope{font-size:17px;font-weight:1000;line-height:1.25}.tag{display:inline-flex;align-items:center;align-self:flex-start;background:rgba(228,189,85,.16);border:1px solid rgba(228,189,85,.42);color:var(--gold2);border-radius:999px;padding:3px 8px;font-size:10px;font-weight:1000;white-space:nowrap}.reason{font-size:11px;color:#aaa;margin-top:3px}.inputs,.vals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.inputBox label,.val span{display:block;color:#aaa;font-size:11px;font-weight:900;margin-bottom:3px}.inputBox input{width:100%;border:1px solid #3a3a3a;background:#090909;color:#fff;border-radius:11px;padding:8px;font-weight:1000}.val{background:#090909;border:1px solid #2f2f2f;border-radius:12px;padding:9px}.val b{font-size:22px;color:#fff}.val.off b{color:#888}.primaryGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.fullGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.summaryGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.sum{border:1px solid #333;background:#111;border-radius:14px;padding:10px}.sum span{display:block;color:#aaa;font-size:11px;font-weight:900}.sum b{display:block;color:var(--gold2);font-size:16px;margin-top:2px}.simpleGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.simple{border:1px solid #333;border-radius:15px;background:#111;padding:11px}.simple strong{color:var(--gold2)}.easyHero{border:1px solid rgba(228,189,85,.55);background:linear-gradient(180deg,rgba(228,189,85,.13),rgba(17,17,17,.96));border-radius:18px;padding:12px;margin-bottom:10px}.easyHero strong{display:block;color:var(--gold2);font-size:16px;margin-bottom:4px}.easyHero p{margin:0;color:#e8e8e8;font-size:12.5px}.quickBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.quickBtns .btn{min-height:46px}.quickBtns .btn.easyGlow{background:linear-gradient(180deg,rgba(228,189,85,.96),rgba(190,141,31,.96));color:#111;border-color:var(--gold);box-shadow:0 0 0 2px rgba(228,189,85,.22) inset,0 0 18px rgba(228,189,85,.38);transform:translateY(-1px)}.quickBtns .btn:not(.easyGlow){background:#1a1a1a;color:#eee;border-color:#383838;box-shadow:none}.miniGuide{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.miniGuide .pillCard{border:1px solid #333;background:#0e0e0e;border-radius:13px;padding:9px}.miniGuide b{color:var(--gold2)}
+.sticky{position:static;background:transparent;padding:10px 0 8px;display:flex;gap:8px}.sticky .btn{flex:1}.footer{font-size:11px;color:#999;text-align:center;margin:18px 0}.hidden{display:none!important}.ok{color:var(--green);font-weight:1000}.warn{color:var(--red);font-weight:900}
+.inputModePanel{border:1px solid rgba(228,189,85,.38);background:rgba(228,189,85,.06);border-radius:16px;padding:11px;margin:10px 0}.inputModePanel .modeTitle{font-weight:1000;color:var(--gold2);margin-bottom:7px}.inputModePanel .modeHelp{margin-top:8px;color:#e9e9e9;font-size:12.5px;line-height:1.55}.inputModePanel .modeHelp b{color:var(--gold2)}
+
+.modeGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.modeCard{border:1px solid #343434;background:#141414;color:#eee;border-radius:18px;padding:13px;text-align:left;cursor:pointer;min-height:92px}.modeCard strong{display:block;font-size:17px;margin-bottom:4px}.modeCard span{display:block;color:#aaa;font-size:12px;font-weight:800;line-height:1.45}.modeCard.active{background:linear-gradient(180deg,rgba(228,189,85,.95),rgba(205,159,48,.95));color:#111;border-color:var(--gold);box-shadow:0 0 0 2px rgba(228,189,85,.18) inset}.modeCard.active span{color:#1a1a1a}.modeNow{margin-top:10px;border:1px solid rgba(228,189,85,.45);background:rgba(228,189,85,.08);color:var(--gold2);border-radius:14px;padding:10px 12px;font-size:13px;font-weight:950}.modeHelp{color:#ddd;font-size:12.5px;margin-top:8px}.modeHelp b{color:var(--gold2)}
+
+
+.stepper{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;gap:6px;align-items:center}.stepBtn{border:1px solid #3a3a3a;background:#1b1b1b;color:#fff;border-radius:11px;min-height:38px;font-weight:1000;font-size:18px;cursor:pointer}.stepBtn:active{transform:translateY(1px)}.stepBtn:hover{border-color:rgba(228,189,85,.65)}.stepBtn:disabled{opacity:.35;cursor:not-allowed}.inputBox input{text-align:center}.modeSection{border-color:rgba(228,189,85,.35)}.modeCard.active strong{color:#111}.specialTip{display:inline-flex;align-items:center;gap:6px;margin:6px 0 0;border:1px solid rgba(228,189,85,.36);background:rgba(228,189,85,.09);color:var(--gold2);border-radius:999px;padding:5px 9px;font-size:11px;font-weight:1000}.fullStatus{margin-top:7px;color:#aaa;font-size:12px;font-weight:800}.fullToggleOpen{box-shadow:0 0 0 2px rgba(228,189,85,.20) inset,0 0 16px rgba(228,189,85,.20)}.modeCard.active strong{color:#111}
+
+@media(max-width:760px){.modeGrid{grid-template-columns:1fr}.modeCard{min-height:auto}.wrap{padding:10px 9px 34px}.top{border-radius:19px;padding:14px}.title{font-size:23px}.notice{font-size:12px}.section{border-radius:18px;padding:12px}.section h2{font-size:17px}.controls{grid-template-columns:1fr}.summaryGrid{grid-template-columns:repeat(2,1fr)}.anchorWrap,.primaryGrid,.fullGrid,.simpleGrid,.miniGuide{grid-template-columns:1fr}.scope{font-size:16px}.cardHead{gap:6px}.val b{font-size:21px}.sticky{padding-bottom:8px}.chip{font-size:11px;padding:7px 9px}.toggleRow .btn{flex:1 1 auto}}
+@media(min-width:761px) and (max-width:1050px){.controls{grid-template-columns:repeat(2,1fr)}.anchorWrap,.primaryGrid{grid-template-columns:repeat(2,1fr)}}
+
+@media(max-width:760px){
+  .modeSection{margin-top:8px;border-color:rgba(228,189,85,.42)}
+  .modeCard strong{font-size:18px}.modeNow{font-size:13px;line-height:1.55}
+  .easyHero{border-color:rgba(228,189,85,.7);padding:13px}
+  .primaryGrid .card{border-color:rgba(228,189,85,.36)}
+  .primaryGrid .scope{font-size:17px}
+  .fullGrid{grid-template-columns:1fr!important}
+  .sticky{position:static;background:transparent;padding:10px 0 8px;z-index:1}
+  .sticky .btn{min-height:44px}
+  .summaryGrid{grid-template-columns:1fr 1fr}
+}
+
+.easyRecommend{margin-top:12px;border-top:1px solid #2d2d2d;padding-top:12px}.easyRecommend h3{margin:0 0 9px;font-size:16px;color:#fff}.easyRecommend .primaryGrid{grid-template-columns:repeat(2,1fr)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+  <div class="title">FPS感度ツール スマホ版</div>
+  <p class="lead">迷わず使えることを最優先に、スマホ専用で設計。かんたん設定はすぐ確認、詳細設定は武器別に1つの基準感度から微調整できます。</p>
+  <div class="notice">本ツールは、実戦向けの参考感度を算出するツールです。 最終的な感度は、端末・指配置・プレイスタイル・ジャイロの使い方・個人の感覚によって変わります。 トレーニング場や実戦で確認しながら、自分に合わせて微調整してください。</div>
+  <div class="guide"><b>公開表記：</b>本ツールは非公式の参考ツールです。各ゲームタイトル・運営会社とは関係ありません。</div>
+</header>
+<div class="appbar"><div class="statusBar" id="statusBar"></div><div class="chips" id="chips"></div></div>
+<section class="section modeSection" id="modeSection">
+  <h2>1. 使い方を選ぶ <span class="hint">最初はかんたん設定でOK</span></h2>
+  <div class="modeGrid">
+    <button id="modeEasy" class="modeCard" type="button"><strong>かんたん設定</strong><span>ジャイロあり/なしだけで目安を見る</span></button>
+    <button id="modeDetail" class="modeCard" type="button"><strong>詳細設定</strong><span>武器別に基準を選んで微調整</span></button>
+  </div>
+  <div class="modeNow" id="modeNow"></div>
+</section>
+<section class="section easySection" id="easySection">
+  <h2>2. かんたん設定 <span class="hint">武器選択なし</span></h2>
+  <div class="easyHero">
+    <strong>最初はここだけでOK</strong>
+    <p>ジャイロあり / なしだけ。武器別調整は詳細設定へ。</p>
+  </div>
+  <div class="quickBtns">
+    <button id="easyGyro" class="btn" type="button">ジャイロありで始める</button>
+    <button id="easyNoGyro" class="btn" type="button">ジャイロなしで始める</button>
+  </div>
+  <div class="simpleGrid" id="simple" style="margin-top:10px"></div>
+  <div class="easyRecommend" id="easyRecommendBlock">
+    <h3>おすすめ感度 <span class="hint">まずここを見る</span></h3>
+    <div class="primaryGrid" id="primary"></div>
+  </div>
+  <div class="miniGuide">
+    <div class="pillCard"><b>かんたん</b><br><span class="hint">武器選択なし</span></div>
+    <div class="pillCard"><b>詳細</b><br><span class="hint">武器別に調整</span></div>
+    <div class="pillCard"><b>目安</b><br><span class="hint">まず試す数値</span></div>
+  </div>
+</section>
+<div id="detailMode">
+<section class="section">
+  <h2>2. 詳細設定：基本設定 <span class="hint">詳細モード中に表示</span></h2>
+  <div class="controls">
+    <div class="control"><label>武器カテゴリ</label><select id="weapon"></select></div>
+    <div class="control"><label>指本数</label><select id="fingers"></select></div>
+    <div class="control"><label>交戦距離</label><div class="rangeLine"><input id="distance" type="range"><b class="bigVal" id="distanceLabel"></b></div><div class="hint" id="distanceHint"></div></div>
+    <div class="control"><label>指：ジャイロ比率</label><div class="rangeLine"><input id="ratio" type="range" min="0" max="100" step="10"><b class="bigVal" id="ratioLabel"></b></div><div class="hint">ジャイロなしは100:0</div></div>
+    <div class="control"><label>プレイスタイル</label><select id="style"><option value="balanced">標準</option><option value="aggressive">近距離強め</option><option value="stable">安定重視</option><option value="gyroStrong">ジャイロ強め</option></select></div>
+    <div class="control"><label>症状補正</label><select id="symptom"><option value="none">補正なし</option><option value="vertical">上に跳ねる</option><option value="horizontal">横ブレが強い</option><option value="slow">追いつかない</option><option value="overshoot">通り過ぎる</option><option value="shake">細かく震える</option></select></div>
+  </div>
+  <div class="toggleRow">
+    <button id="gyroBtn" class="btn" type="button"></button>
+    <button id="shoulderBtn" class="btn" type="button"></button>
+  </div>
+  <div class="guide"><b>調整方法：</b>表示値を− / ＋で微調整。武器ごとに基準は自動で変わります。</div>
+</section>
+<section class="section">
+  <h2>3. 詳細設定：選択した基準感度 <span class="hint">1つ選んで調整</span></h2>
+  <div class="summaryGrid" id="summary"></div>
+  <div class="guide" id="anchorGuide"></div>
+  <div class="inputModePanel" id="inputModePanel">
+    <div class="modeTitle" id="inputModeTitle">選択した基準感度</div>
+    <div class="control" style="margin-top:8px">
+      <label id="baseScopeLabel">基準にするスコープ</label>
+      <select id="baseScope"></select>
+    </div>
+    <div class="modeHelp" id="inputModeGuide"></div>
+    <button class="btn small ghost" id="customResetBtn" type="button" style="margin-top:9px">自分の入力値をリセット</button>
+  </div>
+  <div class="anchorWrap" id="anchors" style="margin-top:10px"></div>
+</section>
+</div>
+<section class="section">
+  <h2>4. 完全感度一覧 <span class="hint">必要な時だけ開く</span></h2>
+  <button class="btn gold" id="fullToggle" type="button">▼ 全スコープ一覧を開く</button>
+  <div class="fullStatus" id="fullStatus">必要な時だけ開いて確認できます。</div>
+  <div id="fullBox" style="margin-top:10px"></div>
+</section>
+<div class="sticky">
+  <button class="btn gold" id="saveBtn" type="button">保存</button>
+  <button class="btn" id="copyBtn" type="button">結果コピー</button>
+  <button class="btn" id="resetBtn" type="button">初期化</button>
+</div>
+<div class="footer">Version 2026.05.28-phone-ui-optimized-v23-ux-status-reset / phone / <span id="flash"></span></div>
+</main>
+<script>
+(function(){
+'use strict';
+const DEVICE_LABEL='スマホ版';
+const BASE_FINGERS=2;
+const STORE='fps_phone_ui_optimized_v23_ux_status_reset';
+const COMPONENTS=[['cam','カメラ'],['ads','ADS'],['gcam','ジャイロカメラ'],['gads','ジャイロADS']];
+const WEAPONS={ar556:'AR（5.56）',ar762:'AR（7.62）',smg:'SMG',sg:'SG',lmg:'LMG',dmr:'DMR',sr:'SR'};
+const SCOPES=[
+ {id:'tpp',label:'TPP ノンスコ',order:0,kind:'hip'},
+ {id:'fpp',label:'FPP ノンスコ',order:1,kind:'hip'},
+ {id:'shoulderTpp',label:'肩越し TPP',order:2,kind:'shoulder'},
+ {id:'shoulderFpp',label:'肩越し FPP',order:3,kind:'shoulder'},
+ {id:'red',label:'レッドドット/ホロ',short:'レッドドット',order:4,kind:'scope'},
+ {id:'x2',label:'2倍',order:5,kind:'scope'},
+ {id:'x3',label:'3倍',order:6,kind:'scope'},
+ {id:'x4',label:'4倍/VSS',short:'4倍',order:7,kind:'scope'},
+ {id:'x6',label:'6倍',order:8,kind:'scope'},
+ {id:'x8',label:'8倍',order:9,kind:'scope'}
+];
+const MULT={
+ tpp:{cam:1.64,ads:1.38,gcam:.88,gads:.92},fpp:{cam:1.52,ads:1.29,gcam:.84,gads:.88},
+ shoulderTpp:{cam:1.20,ads:1.16,gcam:.82,gads:.82},shoulderFpp:{cam:1.10,ads:1.08,gcam:.78,gads:.78},
+ red:{cam:1,ads:1,gcam:1,gads:1},x2:{cam:.74,ads:.69,gcam:.78,gads:.76},x3:{cam:.60,ads:.52,gcam:.61,gads:.63},
+ x4:{cam:.46,ads:.40,gcam:.56,gads:.59},x6:{cam:.30,ads:.25,gcam:.39,gads:.41},x8:{cam:.18,ads:.14,gcam:.24,gads:.25}
+};
+const RED_BASE={ar556:{cam:60,ads:58,gcam:285,gads:305},ar762:{cam:54,ads:52,gcam:275,gads:320},smg:{cam:68,ads:66,gcam:260,gads:245},sg:{cam:72,ads:70,gcam:235,gads:210},lmg:{cam:56,ads:51,gcam:275,gads:295},dmr:{cam:52,ads:47,gcam:255,gads:275},sr:{cam:42,ads:35,gcam:210,gads:220}};
+const PUBLIC_RANGE={red:{cam:62,ads:58,gcam:280,gads:300},x2:{cam:44,ads:40,gcam:230,gads:245},x3:{cam:35,ads:30,gcam:180,gads:205},x4:{cam:27,ads:23,gcam:160,gads:180},x6:{cam:17,ads:14,gcam:105,gads:118},x8:{cam:10,ads:8,gcam:70,gads:78}};
+const TUNE={ar556:{cam:1,ads:1,gcam:1,gads:1},ar762:{cam:.95,ads:.93,gcam:.98,gads:1.05},smg:{cam:1.07,ads:1.07,gcam:.95,gads:.82},sg:{cam:1.10,ads:1.08,gcam:.88,gads:.78},lmg:{cam:.96,ads:.92,gcam:.98,gads:.98},dmr:{cam:.82,ads:.78,gcam:.92,gads:.95},sr:{cam:.66,ads:.55,gcam:.82,gads:.84}};
+const ANCHORS={ar556:['red','x3','x4'],ar762:['red','x3','x4'],smg:['shoulderTpp','red','x2'],sg:['shoulderTpp','tpp','red'],lmg:['red','x3','x6'],dmr:['x4','x6','x8'],sr:['x8','x6','x4']};
+const REASON={tpp:'SG近距離の視点移動軸',shoulderTpp:'近距離の初動・腰寄り操作',red:'近距離〜中距離の基本軸',x2:'SMG/ARの追いエイム軸',x3:'中距離フルオート軸',x4:'中距離・DMR連打の軸',x6:'遠距離寄りの制御軸',x8:'SR/DMR遠距離の主軸'};
+const EASY_SCOPES=['tpp','fpp','red','x2','x3','x4','x6','x8'];
+const EASY_RED_BASE={cam:60,ads:57,gcam:280,gads:295};
+const $=id=>document.getElementById(id);
+const DEFAULT_STATE={mode:'easy',weapon:'ar556',fingers:BASE_FINGERS,style:'balanced',distance:100,ratio:50,gyro:true,shoulder:true,symptom:'none',baseScope:null,custom:{},fullOpen:false};
+let state={...DEFAULT_STATE};
+function load(){try{const s=JSON.parse(localStorage.getItem(STORE)||'{}');state={...state,...s,custom:s.custom||{}};}catch(e){} clampDistance();}
+function save(){localStorage.setItem(STORE,JSON.stringify(state));flash('保存しました');}
+function flash(msg,bad){const n=$('flash'); if(!n)return; n.textContent=msg; n.className=bad?'warn':'ok'; setTimeout(()=>{n.textContent='';},1800);}
+function init(){
+ $('weapon').innerHTML=Object.entries(WEAPONS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+ $('fingers').innerHTML=[2,3,4,5,6].map(n=>`<option value="${n}">${n}本指</option>`).join('');
+ ['weapon','fingers','style','symptom'].forEach(id=>$(id).addEventListener('change',()=>{state[id]=id==='fingers'?parseInt($(id).value,10):$(id).value;if(id==='weapon'){state.distance=distanceRange().def;state.baseScope=null;}clampDistance();render();}));
+ 
+ $('modeEasy').addEventListener('click',()=>{state.mode='easy';state.weapon='ar556';state.fingers=BASE_FINGERS;state.distance=100;state.style='balanced';state.symptom='none';render();});
+ $('modeDetail').addEventListener('click',()=>{state.mode='detail';render();});
+ $('baseScope').addEventListener('change',()=>{state.baseScope=$('baseScope').value;state.mode='detail';render();});
+ const resetCustomBtn=$('customResetBtn');
+ if(resetCustomBtn)resetCustomBtn.addEventListener('click',()=>{clearCurrentCustom();});
+ $('distance').addEventListener('input',()=>{state.distance=parseInt($('distance').value,10);render();});
+ $('ratio').addEventListener('input',()=>{state.ratio=parseInt($('ratio').value,10);if(state.ratio<100)state.gyro=true;render();});
+ $('gyroBtn').addEventListener('click',()=>{state.gyro=!state.gyro;if(!state.gyro)state.ratio=100;else if(state.ratio===100)state.ratio=50;render();});
+ $('shoulderBtn').addEventListener('click',()=>{state.shoulder=!state.shoulder;render();});
+ $('easyGyro').addEventListener('click',()=>{state.mode='easy';state.weapon='ar556';state.fingers=BASE_FINGERS;state.distance=100;state.gyro=true;state.ratio=50;state.style='balanced';state.symptom='none';render();});
+ $('easyNoGyro').addEventListener('click',()=>{state.mode='easy';state.weapon='ar556';state.fingers=BASE_FINGERS;state.distance=100;state.gyro=false;state.ratio=100;state.style='balanced';state.symptom='none';render();});
+ $('saveBtn').addEventListener('click',save);
+ $('resetBtn').addEventListener('click',()=>{if(confirm('保存した調整値を初期化しますか？')){localStorage.removeItem(STORE);state={...DEFAULT_STATE,custom:{}};render();}});
+ $('copyBtn').addEventListener('click',copyResults);
+ $('fullToggle').addEventListener('click',()=>{state.fullOpen=!state.fullOpen;renderFull();});
+}
+function distanceRange(){if(state.weapon==='sg')return {min:5,max:50,step:5,def:20,label:'5〜50m（SG近距離）'};return (state.weapon==='dmr'||state.weapon==='sr')?{min:100,max:300,step:10,def:200,label:'100〜300m（DMR・SR）'}:{min:10,max:150,step:10,def:100,label:'10〜150m（AR・SMG・LMG）'};}
+function clampDistance(){const r=distanceRange();state.distance=Math.max(r.min,Math.min(r.max,state.distance||r.def));}
+function scopeLabel(id,short){const s=SCOPES.find(x=>x.id===id);return (short&&s.short)?s.short:s.label;}
+function visibleScopes(){
+ if(state.mode==='easy')return SCOPES.filter(s=>EASY_SCOPES.includes(s.id));
+ return SCOPES.filter(s=>{if(!state.shoulder&&s.kind==='shoulder')return false;if(state.weapon==='sg'&&['x2','x3','x4','x6','x8'].includes(s.id))return false;if((state.weapon==='ar556'||state.weapon==='ar762'||state.weapon==='smg'||state.weapon==='lmg')&&s.id==='x8')return false;return true;});
+}
+function allAnchorIds(){let a=[...ANCHORS[state.weapon]];if((state.weapon==='smg'||state.weapon==='sg')&&!state.shoulder)a=a.filter(x=>x!=='shoulderTpp');return a.filter(id=>visibleScopes().some(s=>s.id===id));}
+function recommendedAnchorId(){const preferred={ar556:'red',ar762:'red',smg:'red',sg:'shoulderTpp',lmg:'red',dmr:'x4',sr:'x8'};const all=allAnchorIds();const p=preferred[state.weapon];return all.includes(p)?p:all[0];}
+function ensureBaseScope(){const all=allAnchorIds();if(!all.includes(state.baseScope))state.baseScope=recommendedAnchorId()||all[0]||'red';}
+function anchorIds(){if(state.mode==='easy')return [];ensureBaseScope();return state.baseScope?[state.baseScope]:[];}
+function primaryIds(){return state.mode==='easy'?EASY_SCOPES:allAnchorIds();}
+function clamp(n,a,b){return Math.max(a,Math.min(b,n));}
+function baseValue(scopeId,comp){
+ const easy=state.mode==='easy';const red=easy?EASY_RED_BASE[comp]:RED_BASE[state.weapon][comp];const mult=(MULT[scopeId]||MULT.red)[comp];const tune=easy?1:(TUNE[state.weapon][comp]||1);let v=red*mult*tune;
+ const ref=PUBLIC_RANGE[scopeId]?.[comp];if(ref)v=v*.72+ref*.28;
+ const fingerFactor=1+(BASE_FINGERS-state.fingers)*0.035;const gyroFinger=1+(state.fingers-BASE_FINGERS)*0.010;
+ if(comp==='cam'||comp==='ads')v*=fingerFactor*(1+(state.ratio-50)*0.0034);else v*=gyroFinger*(1+((100-state.ratio)-50)*0.0042);
+ const dr=distanceRange();const mid=(dr.min+dr.max)/2;const span=(dr.max-dr.min)||1;const d=(state.distance-mid)/span;
+ if(comp==='cam'||comp==='ads')v*=1-d*(state.weapon==='dmr'||state.weapon==='sr'?0.10:0.07);else v*=1+d*(state.weapon==='dmr'||state.weapon==='sr'?0.06:0.03);
+ // プレイスタイル補正：全感度項目に反映する。
+ // 近距離強め：指操作を大きく、ジャイロも少し軽くする
+ // 安定重視：全体を少し抑えてブレを減らす
+ // ジャイロ強め：指操作を抑え、ジャイロ操作を強める
+ if(state.style==='aggressive')v*=(comp==='cam'||comp==='ads')?1.06:1.04;
+ if(state.style==='stable')v*=(comp==='cam'||comp==='ads')?0.96:0.97;
+ if(state.style==='gyroStrong')v*=(comp==='gcam'||comp==='gads')?1.08:0.96;
+ if(state.symptom==='vertical'){if(comp==='gads')v*=1.07;if(comp==='ads')v*=.98;}
+ if(state.symptom==='horizontal'){if(comp==='cam'||comp==='gcam')v*=.96;}
+ if(state.symptom==='slow'){if(comp==='cam'||comp==='ads')v*=1.07;if(comp==='gcam')v*=1.03;}
+ if(state.symptom==='overshoot')v*=.94;
+ if(state.symptom==='shake'){if(comp==='gads'||comp==='gcam')v*=.94;if(comp==='ads')v*=.98;}
+ return comp==='cam'||comp==='ads'?clamp(Math.round(v),1,200):clamp(Math.round(v),1,400);
+}
+function customFor(scopeId,comp){return state.custom?.[state.weapon]?.[scopeId]?.[comp];}
+function hasCustomForScope(scopeId){return COMPONENTS.some(([c])=>customFor(scopeId,c));}
+function setCustom(scopeId,comp,val){state.custom[state.weapon]=state.custom[state.weapon]||{};state.custom[state.weapon][scopeId]=state.custom[state.weapon][scopeId]||{};if(val===''||val==null)delete state.custom[state.weapon][scopeId][comp];else state.custom[state.weapon][scopeId][comp]=clamp(parseInt(val,10)||0,1,comp==='cam'||comp==='ads'?200:400);}
+function scaledValue(scopeId,comp){
+ if((comp==='gcam'||comp==='gads')&&!state.gyro)return 'OFF';const base=baseValue(scopeId,comp);if(state.mode!=='detail')return base;const pts=[];
+ anchorIds().forEach(id=>{const c=customFor(id,comp);if(c){const b=baseValue(id,comp);pts.push({order:SCOPES.find(s=>s.id===id).order,scale:c/b});}});
+ if(!pts.length)return base;pts.sort((a,b)=>a.order-b.order);const order=SCOPES.find(s=>s.id===scopeId).order;let scale=pts[0].scale;
+ if(order<=pts[0].order)scale=pts[0].scale;else if(order>=pts[pts.length-1].order)scale=pts[pts.length-1].scale;else{for(let i=0;i<pts.length-1;i++){const a=pts[i],b=pts[i+1];if(order>=a.order&&order<=b.order){const t=(order-a.order)/(b.order-a.order);scale=a.scale+(b.scale-a.scale)*t;break;}}}
+ return clamp(Math.round(base*scale),1,comp==='cam'||comp==='ads'?200:400);
+}
+function resultFor(id){const o={};COMPONENTS.forEach(([c])=>o[c]=scaledValue(id,c));return o;}
+function render(){
+ clampDistance();const dr=distanceRange();$('weapon').value=state.weapon;$('fingers').value=state.fingers;$('style').value=state.style;$('symptom').value=state.symptom;
+ $('distance').min=dr.min;$('distance').max=dr.max;$('distance').step=dr.step;$('distance').value=state.distance;$('distanceLabel').textContent=state.distance+'m';$('distanceHint').textContent=dr.label;
+ $('ratio').value=state.gyro?state.ratio:100;$('ratioLabel').textContent=state.gyro?`${state.ratio}:${100-state.ratio}`:'100:0';
+ $('gyroBtn').textContent=state.gyro?'ジャイロ ON':'ジャイロ OFF';$('gyroBtn').className=state.gyro?'btn active':'btn';
+ $('shoulderBtn').textContent=state.shoulder?'肩越し ON':'肩越し OFF';$('shoulderBtn').className=state.shoulder?'btn active':'btn';
+ renderMode();ensureBaseScope();renderInputMode();renderStatus();renderChips();renderSummary();renderAnchors();renderPrimary();renderFull();renderSimple();
+}
+function renderMode(){
+ const easy=state.mode!=='detail';
+ state.mode=easy?'easy':'detail';
+ $('easySection').classList.toggle('hidden',!easy);
+ $('detailMode').classList.toggle('hidden',easy);
+ $('modeEasy').classList.toggle('active',easy);
+ $('modeDetail').classList.toggle('active',!easy);
+ $('easyGyro').classList.toggle('easyGlow', easy && state.gyro);
+ $('easyNoGyro').classList.toggle('easyGlow', easy && !state.gyro);
+ $('modeNow').innerHTML=easy
+  ? '<b>現在：かんたん設定</b><br>武器選択なしで、全武器共通の目安をすぐ確認するモードです。武器ごとに詰めたい時だけ「詳細設定」に切り替えてください。'
+  : '<b>現在：詳細設定</b><br>指本数・距離・症状補正・自分の基準感度を使って、全スコープを細かく調整するモードです。';
+}
+function baseScopeTitle(){if(state.weapon==='dmr')return 'DMR基準倍率';if(state.weapon==='sr')return 'SR基準倍率';return '基準スコープ';}
+function anchorOptionLabel(id){const name=scopeLabel(id,true);if(state.weapon==='dmr'||state.weapon==='sr')return name+'メイン';return name;}
+function baseScopeAdvice(){if(state.weapon==='dmr')return 'DMRは4倍・6倍・8倍から選択。';if(state.weapon==='sr')return 'SRは8倍・6倍・4倍から選択。';if(state.weapon==='smg')return state.shoulder?'SMGは肩越しTPP・レッドドット・2倍から選択。':'SMGはレッドドット・2倍から選択。';if(state.weapon==='sg')return state.shoulder?'SGは肩越しTPP・TPPノンスコ・レッドドットから選択。':'SGはTPPノンスコ・レッドドットから選択。';return '基準を1つ選び、表示値から調整。';}
+function renderInputMode(){
+ const panel=$('inputModePanel');if(!panel)return;ensureBaseScope();const all=allAnchorIds();const sel=$('baseScope');
+ const title=baseScopeTitle();
+ $('inputModeTitle').textContent=title+'の選択';
+ $('baseScopeLabel').textContent=title;
+ sel.innerHTML=all.map(id=>`<option value="${id}">${anchorOptionLabel(id)}${id===recommendedAnchorId()?'（おすすめ）':''}</option>`).join('');
+ sel.value=state.baseScope;
+ const rec=recommendedAnchorId();const recLabel=rec?anchorOptionLabel(rec):'基準';const currentLabel=state.baseScope?anchorOptionLabel(state.baseScope):recLabel;
+ const applied=state.baseScope&&hasCustomForScope(state.baseScope);
+ $('inputModeGuide').innerHTML=`<b>${currentLabel}</b> を基準に調整します。${applied?'<span class="tag" style="margin-left:6px">自分の入力値を反映中</span>':'<span class="hint" style="margin-left:6px">自動算出値</span>'}`;
+ const resetBtn=$('customResetBtn');if(resetBtn){resetBtn.disabled=!applied;resetBtn.textContent=applied?'自分の入力値をリセット':'自動算出値を使用中';}
+}
+function customStatusText(){return state.mode==='detail'&&state.baseScope&&hasCustomForScope(state.baseScope)?'自分入力反映中':'自動算出';}
+function specialTip(){if(state.mode!=='detail')return '';if(state.weapon==='sg')return '<span class="specialTip">SG：近距離用。肩越し / ノンスコ / レッドドット中心</span>';if(state.weapon==='dmr')return '<span class="specialTip">DMR：4倍・6倍・8倍から基準を選択</span>';if(state.weapon==='sr')return '<span class="specialTip">SR：8倍・6倍・4倍から基準を選択</span>';return '';}
+function renderStatus(){const easy=state.mode==='easy';const target=easy?'全武器共通':WEAPONS[state.weapon];const base=easy?(state.gyro?'ジャイロあり':'ジャイロなし'):(state.baseScope?scopeLabel(state.baseScope,true):'基準未選択');const status=easy?'自動算出':customStatusText();$('statusBar').innerHTML=`現在：<b>${easy?'かんたん設定':'詳細設定'}</b> / <b>${target}</b> / 基準：<b>${base}</b> / <b>${status}</b>${specialTip()}`;}
+function renderChips(){const easy=state.mode==='easy';const a=easy?'ノンスコ〜8倍の共通目安':anchorIds().map(id=>scopeLabel(id,true)).join(' / ');const w=easy?'全武器共通':WEAPONS[state.weapon];const method=easy?'かんたん':'選択式';$('chips').innerHTML=`<span class="chip">現在 <b>${easy?'かんたん':'詳細'}</b></span><span class="chip">対象 <b>${w}</b></span><span class="chip">入力 <b>${method}</b></span><span class="chip">指 <b>${state.fingers}本</b></span><span class="chip">比率 <b>${state.gyro?state.ratio+':'+(100-state.ratio):'OFF'}</b></span><span class="chip">表示 <b>${a}</b></span>`;}
+function renderSummary(){const a=anchorIds().map(id=>scopeLabel(id,true)).join(' / ');const w=WEAPONS[state.weapon];$('summary').innerHTML=`<div class="sum"><span>対象</span><b>${w}</b></div><div class="sum"><span>入力方法</span><b>選択式</b></div><div class="sum"><span>距離</span><b>${state.distance}m</b></div><div class="sum"><span>${baseScopeTitle()}</span><b>${a}</b></div>`;}
+function anchorGuideText(){if(state.weapon==='dmr')return 'DMR：4倍 / 6倍 / 8倍から基準を選択。';if(state.weapon==='sr')return 'SR：8倍 / 6倍 / 4倍から基準を選択。';if(state.weapon==='smg')return state.shoulder?'SMG：肩越しTPP / レッドドット / 2倍が基準。':'SMG：レッドドット / 2倍が基準。';if(state.weapon==='sg')return state.shoulder?'SG：肩越しTPP / TPPノンスコ / レッドドットが基準。':'SG：TPPノンスコ / レッドドットが基準。';if(state.weapon==='lmg')return 'LMG：レッドドット / 3倍 / 6倍が基準。';return `${WEAPONS[state.weapon]}：レッドドット / 3倍 / 4倍が基準。`;}
+function renderAnchors(){
+ const ids=anchorIds();
+ $('anchorGuide').textContent=anchorGuideText();
+ $('anchors').innerHTML=ids.map(id=>{
+  const r=resultFor(id);
+  const applied=hasCustomForScope(id);
+  return `<div class="card anchor"><div class="cardHead"><div><div class="scope">${scopeLabel(id)}</div><div class="reason">${REASON[id]||'基準スコープ'}</div></div><span class="tag">${applied?'自分の入力値を反映中':'調整可'}</span></div><div class="guide" style="margin:0 0 9px">表示中の数字を−/＋で微調整してください。</div><div class="inputs">${COMPONENTS.map(([c,l])=>{
+   const off=(!state.gyro&&(c==='gcam'||c==='gads'));
+   const dis=off?'disabled':'';
+   const cur=customFor(id,c);
+   const shown=off?'':(cur??r[c]);
+   const ph=off?'OFF':r[c];
+   const max=(c==='cam'||c==='ads')?200:400;
+   return `<div class="inputBox"><label>${l}</label><div class="stepper"><button class="stepBtn" type="button" data-delta="-1" data-scope="${id}" data-comp="${c}" ${dis}>−</button><input inputmode="numeric" type="number" min="1" max="${max}" placeholder="${ph}" value="${shown}" data-scope="${id}" data-comp="${c}" ${dis}><button class="stepBtn" type="button" data-delta="1" data-scope="${id}" data-comp="${c}" ${dis}>＋</button></div></div>`
+  }).join('')}</div></div>`
+ }).join('');
+ $('anchors').querySelectorAll('input').forEach(inp=>{
+  inp.addEventListener('input',e=>{
+   setCustom(e.target.dataset.scope,e.target.dataset.comp,e.target.value);
+   renderInputMode();renderStatus();renderChips();renderSummary();renderPrimary();renderFull();renderSimple();
+  });
+ });
+ $('anchors').querySelectorAll('.stepBtn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+   const b=e.currentTarget;const scope=b.dataset.scope;const comp=b.dataset.comp;const max=(comp==='cam'||comp==='ads')?200:400;
+   const input=$('anchors').querySelector(`input[data-scope="${scope}"][data-comp="${comp}"]`);
+   const base=parseInt(input.value||input.placeholder||baseValue(scope,comp),10)||baseValue(scope,comp);
+   const next=clamp(base+parseInt(b.dataset.delta,10),1,max);
+   setCustom(scope,comp,next);
+   render();
+  });
+ });
+}
+function resultCard(id,anch){const r=resultFor(id);return `<div class="card ${anch?'anchor':''}"><div class="cardHead"><div><div class="scope">${scopeLabel(id)}</div>${anch?'<div class="reason">選択中の基準</div>':''}</div>${anch?'<span class="tag">調整可</span>':''}</div><div class="vals">${COMPONENTS.map(([c,l])=>`<div class="val ${r[c]==='OFF'?'off':''}"><span>${l}</span><b>${r[c]}</b></div>`).join('')}</div></div>`;}
+function renderPrimary(){const box=$('primary');if(!box)return;box.innerHTML=state.mode==='easy'?primaryIds().map(id=>resultCard(id,false)).join(''):'';}
+function renderFull(){const box=$('fullBox');const btn=$('fullToggle');btn.textContent=state.fullOpen?'▲ 全スコープ一覧を閉じる':'▼ 全スコープ一覧を開く';btn.classList.toggle('fullToggleOpen',state.fullOpen);const fs=$('fullStatus');if(fs)fs.textContent=state.fullOpen?'全スコープを表示中です。閉じると画面がすっきりします。':'必要な時だけ開いて全スコープを確認できます。';box.className=state.fullOpen?'fullGrid':'hidden';if(state.fullOpen){const detail=state.mode==='detail';box.innerHTML=visibleScopes().map(s=>resultCard(s.id,detail&&anchorIds().includes(s.id))).join('');}}
+function renderSimple(){const a=anchorIds().map(id=>scopeLabel(id,true)).join(' / ');const txt=state.mode==='easy'?[['対象','全武器共通'],['操作','ジャイロあり / なしだけ'],['表示','ノンスコ〜8倍までの共通目安'],['使い方','まずは表示された感度を試し、武器別に詰めたい時だけ詳細設定へ']]:[['現在の武器',WEAPONS[state.weapon]],['調整基準',a],['入力方法','選択式'],['使い方','基準を1つ選び、表示値から微調整します']];$('simple').innerHTML=txt.map(([aa,b])=>`<div class="simple"><strong>${aa}</strong><div class="hint">${b}</div></div>`).join('');}
+function copyResults(){const lines=[];lines.push(`FPS感度ツール ${DEVICE_LABEL}`);lines.push(`${state.mode==='easy'?'全武器共通':WEAPONS[state.weapon]} / ${state.fingers}本 / ${state.gyro?state.ratio+':'+(100-state.ratio):'ジャイロOFF'} / ${state.mode==='easy'?'かんたん設定':state.distance+'m'}`);visibleScopes().forEach(s=>{const r=resultFor(s.id);lines.push(`${scopeLabel(s.id)}：カメラ${r.cam} / ADS${r.ads} / ジャイロカメラ${r.gcam} / ジャイロADS${r.gads}`);});const txt=lines.join('\n');if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>flash('コピーしました')).catch(()=>fallbackCopy(txt));}else fallbackCopy(txt);}
+function fallbackCopy(txt){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash('コピーしました')}catch(e){flash('コピーできません',true)}ta.remove();}
+load();init();render();if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{});}
+})();
+</script>
+</body></html>

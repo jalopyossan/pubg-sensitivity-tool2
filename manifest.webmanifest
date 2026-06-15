@@ -1,0 +1,23 @@
+{
+  "name": "FPS感度ツール スマホ版",
+  "short_name": "感度スマホ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "description": "実戦向けの参考感度を算出する非公式ツールです。表示されている数字を基準に、端末やプレイスタイルに合わせて微調整できます。"
+}
